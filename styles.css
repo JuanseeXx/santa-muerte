@@ -188,6 +188,49 @@ body::after {
   100% { transform: translateX(0); }
 }
 
+.gallery {
+  display: flex;
+  flex-wrap: wrap;     
+  justify-content: center; 
+  gap: 1.5rem;          
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.gallery .item {
+  background-color: var(--gris-oscuro);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--negro-rojo);
+  padding: 1rem;
+  flex: 1 1 280px;
+  text-align: center;
+  color: #ffffff;
+  
+}
+.gallery .item img {
+  width: 400px;           
+  height: 500px;       
+  border-radius: 6px;  
+  display: flex;     
+  margin: 0 auto; 
+}
+.gallery .item button{
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: var(--naranja);
+  color: var(--negro-rojo);
+  box-shadow: 2px 2px 2px 1px var(--)
+ 
+}
+.gallery .item button:hover{
+  background-color: var(--naranja-quemado);
+  cursor:pointer;
+  font-weight: bold;
+}
+
+
 /*ZONA DEL RESPONSIVE*/
 
 @media (max-width: 768px) {
