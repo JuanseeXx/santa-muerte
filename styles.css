@@ -113,6 +113,14 @@ body::after {
   text-shadow: 2px 2px 4px #000;
 }
 
+.main__title--2 {
+  font-size: 1.5rem;
+  color: var(--naranja);
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px #000;
+}
+
 .main__description {
   max-width: 600px;
   margin: 0 auto 2rem;
@@ -179,6 +187,21 @@ body::after {
   height: 500px;
   object-fit: cover;
   display: block;
+}
+
+.carousel__slides--historia{
+  display: flex;
+  width: calc(900px * 5);
+  animation: historia 15s infinite;
+}
+
+@keyframes historia {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-900px); }
+  40%  { transform: translateX(-1800px); }
+  60%  { transform: translateX(-2700px); }
+  80%  { transform: translateX(-3600px); }
+  100% { transform: translateX(0); }
 }
 
 @keyframes slide {
