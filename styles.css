@@ -1,0 +1,280 @@
+:root {
+  --gris-oscuro: #5f605b;
+  --gris-carbon: #323232;
+  --negro-rojo: #20100e;
+  --marron-oscuro: #5e3123;
+  --naranja-quemado: #923b1b;
+  --naranja: #b7622c;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* GIF DE FONDO*/
+body::before {
+  content: "";
+  background: url('./assets/santa-muerte2.gif') no-repeat center center / cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  filter: blur(2px);
+  z-index: -2;
+}
+
+/* CAPA OSCURA ENCIMA DEL FONDO (BACKGROUND)*/
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.6);
+  z-index: -1;
+}
+
+.header {
+  background-color: rgba(32, 16, 14, 0.85);
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav__list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__link {
+  color: var(--naranja);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.nav__link:hover {
+  color: var(--naranja-quemado);
+}
+
+.header__socials a img {
+  width: 30px;
+  margin-left: 0.5rem;
+  transition: transform 0.3s;
+  filter: drop-shadow(1px 1px 1px var(--marron-oscuro));
+}
+
+.header__socials a:hover img {
+  transform: scale(1.2);
+}
+
+.header__logo {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.header__logo img {
+  max-width: 150px;
+  border: 2px solid var(--naranja);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.main {
+  padding: 2rem 1rem;
+  background-color: rgba(95, 96, 91, 0.7);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.main__title {
+  font-size: 2rem;
+  color: var(--naranja);
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.main__description {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: #ddd;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.main__image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+}
+
+.footer {
+  background-color: rgba(94, 49, 35, 0.9);
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.footer__text {
+  color: #fff;
+  font-size: 0.9rem;
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* PSEUDO-CLASES */
+.nav__item:nth-child(even) .nav__link {
+  color: var(--gris-oscuro);
+}
+
+.nav__item:hover .nav__link {
+  text-decoration: underline;
+}
+
+.nav__item:not(:last-child) {
+  margin-right: 1rem;
+}
+
+
+/*CARRUSEL*/
+.carousel {
+    position: relative;
+    width: 900px;
+    height: 500px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+}
+
+.carousel__slides {
+  display: flex;
+  width: calc(900px * 3);
+  animation: slide 9s infinite;
+}
+
+.carousel__slide img {
+  width: 900px;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  33%  { transform: translateX(-900px); }
+  66%  { transform: translateX(-1800px); }
+  100% { transform: translateX(0); }
+}
+
+/*ZONA DEL RESPONSIVE*/
+
+@media (max-width: 768px) {
+  .header__top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .header__socials {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .carousel {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel__slides {
+    width: 300%;
+  }
+
+  .carousel__slide img {
+    width: 100vw;
+    height: auto;
+  }
+
+  @keyframes slide {
+    0%   { transform: translateX(0); }
+    33%  { transform: translateX(-100vw); }
+    66%  { transform: translateX(-200vw); }
+    100% { transform: translateX(0); }
+  }
+
+  .main__title {
+    font-size: 1.5rem;
+  }
+
+  .main__description {
+    padding: 0 1rem;
+  }
+
+  .header__logo img {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav__link {
+    font-size: 0.95rem;
+  }
+
+  .header__socials a img {
+    width: 26px;
+  }
+
+  .main {
+    padding: 1rem;
+  }
+
+  .main__title {
+    font-size: 1.3rem;
+  }
+
+  .main__description {
+    font-size: 0.95rem;
+  }
+
+  .footer__text {
+    font-size: 0.8rem;
+  }
+
+  .carousel {
+    height: 250px;
+  }
+
+  .carousel__slide img {
+    height: 250px;
+  }
+}
+
+/*FIN DEL RESPONSIVE*/
