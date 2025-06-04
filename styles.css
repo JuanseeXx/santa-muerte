@@ -15,6 +15,7 @@ body {
   z-index: 1;
   min-height: 100vh;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /* GIF DE FONDO*/
@@ -29,6 +30,7 @@ body::before {
   opacity: 0.2;
   filter: blur(2px);
   z-index: -2;
+  
 }
 
 /* CAPA OSCURA ENCIMA DEL FONDO (BACKGROUND)*/
@@ -253,6 +255,108 @@ body::after {
   font-weight: bold;
 }
 
+/*FOOD*/
+
+.food {
+  padding: 10px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  width: 70%;
+  margin: 0 auto;
+}
+
+.food_card {
+  background-color: var(--gris-oscuro);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px var(--negro-rojo);
+  margin: 40px;
+  transition: transform 0.3s ease;
+  padding: 1rem;
+}
+
+.food_card:hover {
+  transform: scale(1.1);
+}
+
+.card_img {
+  width: 80%;
+  object-fit: cover;
+  height: 550px;
+  border-radius: 6px;
+}
+.--item {
+  padding: 10px;
+  font-size: larger;
+  line-height: 1.5;
+}
+
+.main_precio {
+  font-size: 2.5rem;
+  color: var(#fff);
+}
+
+.main_boton {
+  padding: 8px;
+  font-size: 2rem;
+  border-radius: 6px;
+  background-color: var(--naranja);
+  color: var(--negro-rojo);
+  box-shadow: 2px 2px 2px 1px var(--);
+}
+
+.main_boton:hover {
+  cursor: pointer;
+  background-color: var(--naranja-quemado);
+  font-weight: bold;
+}
+
+@media (max-width: 780px) {
+  .food {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .food_card {
+    margin: 20px 10px;
+  }
+  .card_img {
+    height: 400px;
+  }
+
+  .main_precio {
+    font-size: 1.8rem;
+  }
+
+  .main_boton {
+    font-size: 1.5rem;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .food {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .food_card {
+    margin: 20px 10px;
+    width: 90%;
+  }
+
+  .card_img {
+    height: 250px;
+  }
+
+  .main__description {
+    font-size: 0.9rem;
+  }
+}
+/*-----------------------------food--------------------------------------*/
 
 /*ZONA DEL RESPONSIVE*/
 
